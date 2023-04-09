@@ -1,1 +1,44 @@
+SCENARIO: User is listening songs from Songs App
 
+  GIVEN User is opening the song app 
+  AND User plays a song
+  WHEN he plays second song
+  THEN only two songs will be added in playlist with status as "Success" with code "200"
+  
+  GIVEN User is opening the song app 
+  AND User plays a song
+  WHEN he plays second song and then third song respectively
+  THEN three songs will be added in playlist with status as "Success" with code "200"
+  
+  GIVEN User is opening the song app 
+  WHEN he plays five songs consequtively
+  THEN first played song will be removed
+  THEN recent played song will be added to list  with status as "Success" with code "200"
+  
+  
+  GIVEN User is opening the song app 
+  WHEN User does not play any song 
+  THEN playlist will be empty with status as "Success" with code "204"
+  
+  GIVEN User is playing the song 
+  WHEN User plays a song in different format file which device is not supporting
+  THEN error should be displayed with status as "Error" with code "422"
+  
+  GIVEN User is opening the song app 
+  AND app is displaying blank page with error400 
+  WHEN he tries to open the song from app
+  THEN error should be displayed with status as "BadGateway" with code "400"
+  
+   GIVEN User is opening the song app 
+  AND app is crashing due to some virus in device
+  WHEN he tries to open the song app again
+  THEN error should be displayed with status as "Internal Server Error" with code "500"
+  
+  
+  
+  
+  
+  
+  
+  
+  
